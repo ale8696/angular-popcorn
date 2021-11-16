@@ -1,0 +1,15 @@
+img {
+    object-fit: cover;
+}
+
+.movie-item {
+    width: 200px;
+    height: 220px;
+}
+.film-text {
+    text-overflow: ellipsis;
+    width: 200px;
+    padding: 2px 5px;
+    white-space: nowrap;
+    overflow: hidden;
+}
