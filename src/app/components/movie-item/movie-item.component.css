@@ -13,3 +13,8 @@ img {
     white-space: nowrap;
     overflow: hidden;
 }
+.pop {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
