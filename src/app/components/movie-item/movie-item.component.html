@@ -3,14 +3,7 @@
     <mat-card-content>
         <img [src]="getMovieImageUrl(movieInput)" height="200px" width="100%" />
         <circle-progress class="pop"
-            [percent]="movieInput.popularity"
-            [radius]="15"
-            [outerStrokeWidth]="16"
-            [innerStrokeWidth]="8"
-            [outerStrokeColor]="'#78C000'"
-            [innerStrokeColor]="'#C7E596'"
-            [animation]="true"
-            [animationDuration]="300"
+            [percent]=movieInput.popularity*0.01
       ></circle-progress>
         <h3 class="film-text">{{movieInput.title}}</h3>
     </mat-card-content>

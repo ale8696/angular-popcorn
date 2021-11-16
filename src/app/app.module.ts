@@ -26,14 +26,26 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     HttpClientModule,
     FlexLayoutModule,
     NgCircleProgressModule.forRoot({
-      // set defaults here
-      radius: 100,
-      outerStrokeWidth: 16,
-      innerStrokeWidth: 8,
-      outerStrokeColor: "#78C000",
-      innerStrokeColor: "#C7E596",
-      animationDuration: 300,
-    })
+      "backgroundColor": "#000000",
+      "backgroundGradientStopColor": "#000000",
+      "backgroundStroke": "#000000",
+      "backgroundPadding": 3,
+      "radius": 15,
+      "toFixed": 0,
+      "maxPercent": 100,
+      "units": " Point",
+      "unitsColor": "#483500",
+      "outerStrokeWidth": 5,
+      "outerStrokeColor": "#ffffff",
+      "innerStrokeColor": "#FFFFFF",
+      "titleColor": "#ededed",
+      "subtitleColor": "#483500",
+      "imageWidth": 134,
+      "showSubtitle": false,
+      "showUnits": false,
+      "showInnerStroke": false,
+      "titleFontSize": "10",})
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
