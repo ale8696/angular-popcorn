@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./movie-item.component.css']
 })
 export class MovieItemComponent implements OnInit {
+  
   @Input() movieInput!: Movie;
 
   constructor(private dialog: MatDialog) { }

@@ -12,7 +12,7 @@ export class AccountService {
   constructor(private http: HttpClient) { }
 
   getCreatedLists(): Observable<CreatedListsResponse> {
-    let url = `${environment.apiBaseUrl}/${environment.accountBaseUrl}/?api_key=${environment.apiKey}&session_id=${environment.session_id}`;
+    let url = `${environment.apiBaseUrl}/${environment.accountBaseUrl}/{account_id}/lists?api_key=${environment.apiKey}&session_id=${environment.session_id}`;
     return this.http.get<CreatedListsResponse>(url);
   }
 

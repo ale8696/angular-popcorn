@@ -1,1 +1,23 @@
-<p>dialog-add-to-list works!</p>
+<div *ngIf="listasCreadas.length >= 1">
+    <mat-form-field appearance="fill">
+        <mat-label>Listas...</mat-label>
+        <mat-select [(ngModel)]="selected">
+        <mat-option *ngFor="let lista of listasCreadas" [value]="lista.id">
+            {{lista.name}}
+        </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<div *ngIf="listasCreadas.length >= 1">
+    <span><h1>o</h1></span>
+</div>
+
+<div>
+    <h3>Introduzca el nombre de la lista</h3>
+    <mat-form-field class="input-nombre" appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput placeholder="Ej: Favoritas">
+    </mat-form-field>
+    <button mat-raised-button>Crear e ingresar</button>
+</div>

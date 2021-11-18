@@ -2,12 +2,12 @@
 
 export interface CreatedListsResponse {
     page:          number;
-    results:       Result[];
+    results:       lista[];
     total_pages:   number;
     total_results: number;
 }
 
-export interface Result {
+export interface lista {
     description:    string;
     favorite_count: number;
     id:             number;
