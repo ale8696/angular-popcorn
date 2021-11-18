@@ -5,8 +5,11 @@
         <circle-progress class="pop"
             [percent]=movieInput.popularity*0.01
       ></circle-progress>
-        <h3 class="film-text">{{movieInput.title}}</h3>
+        <h2 class="film-text">{{movieInput?.title}}</h2>
     </mat-card-content>
     <mat-card-actions>
+        <button mat-icon-button color="primary" aria-label="Añadir pelicula a una lista" (click)="openDialogAddToList()">
+            <mat-icon>playlist_add</mat-icon>
+        </button>
     </mat-card-actions>
 </mat-card>

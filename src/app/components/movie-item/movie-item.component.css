@@ -2,17 +2,13 @@ img {
     object-fit: cover;
 }
 
-.movie-item {
-    width: 200px;
-    height: 220px;
-}
 .film-text {
     text-overflow: ellipsis;
-    width: 200px;
-    padding: 2px 5px;
+    max-width: 100%;
     white-space: nowrap;
     overflow: hidden;
 }
+
 .pop {
     position: absolute;
     top: 5px;

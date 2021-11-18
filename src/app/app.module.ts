@@ -11,12 +11,15 @@ import { MoviesPopularListComponent } from './components/movies-popular-list/mov
 import { MovieItemComponent } from './components/movie-item/movie-item.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { FormsModule } from '@angular/forms';
+import { DialogAddToListComponent } from './dialog/dialog-add-to-list/dialog-add-to-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesPopularListComponent,
-    MovieItemComponent
+    MovieItemComponent,
+    DialogAddToListComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +28,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     MaterialImportsModule,
     HttpClientModule,
     FlexLayoutModule,
+    FormsModule,
     NgCircleProgressModule.forRoot({
       "backgroundColor": "#000000",
       "backgroundGradientStopColor": "#000000",
@@ -46,6 +50,9 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
       "showInnerStroke": false,
       "titleFontSize": "10",})
     
+  ],
+  entryComponents: [
+    DialogAddToListComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
