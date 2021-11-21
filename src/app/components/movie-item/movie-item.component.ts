@@ -26,7 +26,7 @@ export class MovieItemComponent implements OnInit {
     this.dialog.open(DialogAddToListComponent, {
       height: '400px',
       width: '300px',
-      data: { movieId: this.movieInput?.id }
+      data: { movieId: this.movieInput.id }
     });
   }
 

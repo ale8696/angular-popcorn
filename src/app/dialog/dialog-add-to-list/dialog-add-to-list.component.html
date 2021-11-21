@@ -23,5 +23,5 @@
         <mat-label>Descripción</mat-label>
         <textarea matInput placeholder="Ej: Mis peliculas favoritas..." [(ngModel)]="descripcionLista"></textarea>
     </mat-form-field>
-    <button mat-raised-button>Crear e ingresar</button>
+    <button mat-raised-button mat-dialog-close (click)="addMovieToNewList()">Crear e ingresar</button>
 </div>

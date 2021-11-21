@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import { CreateListDto, CreateListResponse, lista } from 'src/app/models/interfaces/lists.interface';
+import { AddMovieDto, CreateListDto, CreateListResponse, lista } from 'src/app/models/interfaces/lists.interface';
 import { AccountService } from 'src/app/services/account.service';
 import { ListsService } from 'src/app/services/lists.service';
 
@@ -25,7 +25,7 @@ export class DialogAddToListComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: DialogAddToListData,
     private accountService: AccountService,
-    private listService: ListsService,
+    private listService: ListsService
   ) { }
 
   ngOnInit(): void {
@@ -37,14 +37,15 @@ export class DialogAddToListComponent implements OnInit {
       this.listasCreadas = response.results;
     })
   }
-  
-  //Temporal***
-  postCreateList() {
-    let lista: CreateListDto = new CreateListDto(this.nombreLista, this.descripcionLista)
-    let respuesta: CreateListResponse;
-    this.listService.postCreateList(lista).subscribe();
-  }
 
-  addMovieToNewList() {}
+  addMovieToNewList() {
+    let lista: CreateListDto = new CreateListDto(this.nombreLista, this.descripcionLista);
+    let peli: AddMovieDto = new AddMovieDto(this.data.movieId);
+    let listaId: number;
+    this.listService.postCreateList(lista).subscribe(response => {
+      listaId = response.list_id;
+      this.listService.postAddMovie(listaId, peli).subscribe();
+    });
+  }
 
 }
