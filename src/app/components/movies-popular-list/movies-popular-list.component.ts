@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/app/models/interfaces/movies-popular.interface';
 import { AccountService } from 'src/app/services/account.service';
 import { MoviesService } from 'src/app/services/movies.service';
-import { Favorite } from 'src/app/models/interfaces/account.interface';
 
 @Component({
   selector: 'app-movies-popular-list',
@@ -11,7 +10,7 @@ import { Favorite } from 'src/app/models/interfaces/account.interface';
 })
 export class MoviesPopularListComponent implements OnInit {
   popularMovies: Movie[] = [];
-  favoriteMovies: Favorite[] = [];
+  favoriteMovies: Movie[] = [];
 
   constructor(
     private moviesService: MoviesService,
@@ -24,6 +23,15 @@ export class MoviesPopularListComponent implements OnInit {
         this.favoriteMovies = response.results;
       });
     });
+  }
+
+  isFavorite(movie: Movie): boolean {
+    if (this.favoriteMovies?.find(p => (p.id == movie.id))) {
+      return true;
+    }
+    else {
+      return false;
+    }
   }
 
 }

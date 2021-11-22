@@ -23,9 +23,9 @@ export class AccountService {
     return this.http.get<CreatedListsResponse>(url);
   }
 
-  markAsFavorite(): Observable<MarkAsFavoriteResponse> {
-    let url = `${environment.apiBaseUrl}/${environment.accountBaseUrl}/{account_id}/favorite?`;
-    return this.http.post<MarkAsFavoriteResponse>(url, FavoriteDto, DEFAULT_HEADERS);
+  markFavorite(favorita: FavoriteDto): Observable<MarkAsFavoriteResponse> {
+    let url = `${environment.apiBaseUrl}/${environment.accountBaseUrl}/{account_id}/favorite?api_key=${environment.apiKey}&session_id=${environment.session_id}`;
+    return this.http.post<MarkAsFavoriteResponse>(url, favorita, DEFAULT_HEADERS);
   }
   
   getFavoriteMovies(): Observable<GetFavoriteMoviesResponse> {
