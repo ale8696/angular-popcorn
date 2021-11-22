@@ -18,7 +18,7 @@ export interface DialogAddToListData {
 export class DialogAddToListComponent implements OnInit {
 
   listasCreadas!: lista[];
-  selected!: number;
+  listaSeleccionada!: number;
   nombreLista!: string;
   descripcionLista!: string;
 
@@ -46,6 +46,11 @@ export class DialogAddToListComponent implements OnInit {
       listaId = response.list_id;
       this.listService.postAddMovie(listaId, peli).subscribe();
     });
+  }
+
+  addMovieToList() {
+    let peli: AddMovieDto = new AddMovieDto(this.data.movieId);
+    this.listService.postAddMovie(this.listaSeleccionada, peli).subscribe();
   }
 
 }

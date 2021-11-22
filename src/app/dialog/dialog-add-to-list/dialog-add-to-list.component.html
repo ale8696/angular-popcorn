@@ -1,12 +1,13 @@
 <div *ngIf="listasCreadas.length >= 1">
     <mat-form-field appearance="fill">
         <mat-label>Listas...</mat-label>
-        <mat-select [(ngModel)]="selected">
+        <mat-select [(ngModel)]="listaSeleccionada">
         <mat-option *ngFor="let lista of listasCreadas" [value]="lista.id">
             {{lista.name}}
         </mat-option>
         </mat-select>
     </mat-form-field>
+    <button mat-raised-button mat-dialog-close (click)="addMovieToList()">Ingresar</button>
 </div>
 
 <div *ngIf="listasCreadas.length >= 1">
