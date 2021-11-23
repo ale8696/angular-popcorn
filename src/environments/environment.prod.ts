@@ -5,6 +5,7 @@ export const environment = {
   defaultLang: 'es-ES',
   imageBaseUrl: 'https://image.tmdb.org/t/p/w500',
   accountBaseUrl: 'account',
+  genreBaseUrl: 'genre',
   session_id: '077e10a716c6c1902138a607965350cc9c130018',
   listBaseUrl: 'list'
 };
