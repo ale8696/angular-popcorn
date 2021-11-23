@@ -47,11 +47,20 @@ export class MoviesPopularListComponent implements OnInit {
       this.genres = response.genres;
     })
   }
-/*
+
   filterList() {
-    this.genres.forEach(genre => {
-      this.actualMovies.(this.popularMovies.filter(movie => movie.genre_ids.includes(genre.id)));
+    this.actualMovies = [];
+    this.popularMovies.forEach(popularMovie => {
+      let isOk: boolean = true;
+      this.generos.value.forEach((genre: number) => {
+        if(!(popularMovie.genre_ids.includes(genre)) || this.actualMovies.includes(popularMovie)) {
+          isOk=false;
+        }
+      })
+      if(isOk) {
+        this.actualMovies.push(popularMovie);
+      }
     });
   }
-*/
+
 }
