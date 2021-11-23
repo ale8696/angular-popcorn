@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Genre } from 'src/app/models/interfaces/genres.interface';
 import { Movie } from 'src/app/models/interfaces/movies-popular.interface';
 import { AccountService } from 'src/app/services/account.service';
+import { GenreService } from 'src/app/services/genre.service';
 import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
@@ -10,11 +13,15 @@ import { MoviesService } from 'src/app/services/movies.service';
 })
 export class MoviesPopularListComponent implements OnInit {
   popularMovies: Movie[] = [];
+  actualMovies: Movie[] = [];
   favoriteMovies: Movie[] = [];
+  genres: Genre[] = [];
+  generos = new FormControl();
 
   constructor(
     private moviesService: MoviesService,
-    private accountService: AccountService) { }
+    private accountService: AccountService,
+    private genreService: GenreService) { }
 
   ngOnInit(): void {
     this.moviesService.getPopularMovies().subscribe(popularMoviesResponse => {
@@ -23,6 +30,7 @@ export class MoviesPopularListComponent implements OnInit {
         this.favoriteMovies = response.results;
       });
     });
+    this.getGenreList();
   }
 
   isFavorite(movie: Movie): boolean {
@@ -34,4 +42,16 @@ export class MoviesPopularListComponent implements OnInit {
     }
   }
 
+  getGenreList() {
+    this.genreService.getGenresList().subscribe(response => {
+      this.genres = response.genres;
+    })
+  }
+/*
+  filterList() {
+    this.genres.forEach(genre => {
+      this.actualMovies.(this.popularMovies.filter(movie => movie.genre_ids.includes(genre.id)));
+    });
+  }
+*/
 }
