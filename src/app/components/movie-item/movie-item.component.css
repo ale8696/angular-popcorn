@@ -1,6 +1,7 @@
 img {
     object-fit: cover;
-    border-radius: 4px;
+    border-radius: 5px;
+    height: 330px;
 }
 
 .film-text {

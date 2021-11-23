@@ -2,10 +2,9 @@
     <mat-form-field appearance="fill">
         <mat-label>Generos</mat-label>
         <mat-select [formControl]="generos" multiple>
-          <mat-option *ngFor="let genre of genres" [value]="genre.id">{{genre.name}}</mat-option>
+          <mat-option *ngFor="let genre of genres" [value]="genre.id" (click)="filterList()">{{genre.name}}</mat-option>
         </mat-select>
       </mat-form-field>
-      <button mat-raised-button color="primary" aria-label="filtrar las pelis" (click)="filterList()">Filtrar</button>
 </div>
 
 <div fxLayout="row wrap" fxLayoutGap="20px grid" fxLayoutAlign="space-around" *ngIf="actualMovies.length == 0;else filtradas">
