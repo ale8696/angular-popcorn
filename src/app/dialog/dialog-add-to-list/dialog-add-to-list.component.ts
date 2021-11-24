@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Observable } from 'rxjs';
 import { AddMovieDto, CreateListDto, CreateListResponse, lista } from 'src/app/models/interfaces/lists.interface';
 import { AccountService } from 'src/app/services/account.service';
 import { ListsService } from 'src/app/services/lists.service';
@@ -21,6 +21,11 @@ export class DialogAddToListComponent implements OnInit {
   listaSeleccionada!: number;
   nombreLista!: string;
   descripcionLista!: string;
+
+  nuevaLista = new FormGroup({
+    nombre: new FormControl(Validators.required),
+    descripcion: new FormControl('')
+  })
 
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: DialogAddToListData,

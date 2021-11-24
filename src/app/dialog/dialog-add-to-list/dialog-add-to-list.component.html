@@ -15,14 +15,19 @@
 </div>
 
 <div>
-    <h3>Introduzca el nombre de la lista</h3>
-    <mat-form-field class="input-nombre" appearance="fill">
-        <mat-label>Nombre</mat-label>
-        <input matInput placeholder="Ej: Favoritas" [(ngModel)]="nombreLista">
-    </mat-form-field>
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Descripción</mat-label>
-        <textarea matInput placeholder="Ej: Mis peliculas favoritas..." [(ngModel)]="descripcionLista"></textarea>
-    </mat-form-field>
-    <button mat-raised-button mat-dialog-close (click)="addMovieToNewList()">Crear e ingresar</button>
+    <form [formGroup]="nuevaLista">
+        <h3>Introduzca el nombre de la lista</h3>
+        <mat-form-field class="input-nombre" appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input matInput placeholder="Ej: Favoritas" formControlName="nombre">
+            <mat-error *ngIf="nuevaLista.hasError('required')">
+                Nombre de lista obligatorio.
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Descripción</mat-label>
+            <textarea matInput placeholder="Ej: Mis peliculas favoritas..." formControlName="descripcion"></textarea>
+        </mat-form-field>
+        <button mat-raised-button mat-dialog-close (click)="addMovieToNewList()">Crear e ingresar</button>
+    </form>
 </div>
