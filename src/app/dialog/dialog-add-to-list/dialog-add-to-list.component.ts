@@ -19,11 +19,9 @@ export class DialogAddToListComponent implements OnInit {
 
   listasCreadas!: lista[];
   listaSeleccionada!: number;
-  nombreLista!: string;
-  descripcionLista!: string;
 
   nuevaLista = new FormGroup({
-    nombre: new FormControl(Validators.required),
+    nombre: new FormControl(null, Validators.required),
     descripcion: new FormControl('')
   })
 
@@ -44,7 +42,7 @@ export class DialogAddToListComponent implements OnInit {
   }
 
   addMovieToNewList() {
-    let lista: CreateListDto = new CreateListDto(this.nombreLista, this.descripcionLista);
+    let lista: CreateListDto = new CreateListDto(this.nuevaLista.get('nombre')?.value, this.nuevaLista.get('descripcion')?.value);
     let peli: AddMovieDto = new AddMovieDto(this.data.movieId);
     let listaId: number;
     this.listService.postCreateList(lista).subscribe(response => {

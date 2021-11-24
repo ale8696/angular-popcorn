@@ -17,17 +17,19 @@
 <div>
     <form [formGroup]="nuevaLista">
         <h3>Introduzca el nombre de la lista</h3>
+    
         <mat-form-field class="input-nombre" appearance="fill">
             <mat-label>Nombre</mat-label>
-            <input matInput placeholder="Ej: Favoritas" formControlName="nombre">
-            <mat-error *ngIf="nuevaLista.hasError('required')">
-                Nombre de lista obligatorio.
-            </mat-error>
+            <input matInput formControlName="nombre" placeholder="Pelis de mi infancia..." required>
         </mat-form-field>
+    
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Descripción</mat-label>
             <textarea matInput placeholder="Ej: Mis peliculas favoritas..." formControlName="descripcion"></textarea>
         </mat-form-field>
-        <button mat-raised-button mat-dialog-close (click)="addMovieToNewList()">Crear e ingresar</button>
+        <button mat-raised-button mat-dialog-close (click)="addMovieToNewList()" *ngIf="nuevaLista.valid;else invalido">Crear e ingresar</button>
+        <ng-template #invalido>
+            <button mat-raised-button mat-dialog-close disabled>Crear e ingresar</button>
+        </ng-template>
     </form>
 </div>
